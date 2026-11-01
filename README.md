@@ -1,5 +1,6 @@
 # 🧠 Placement DSA Mastery (C++ & Python)
 
+[![CI Test Suite](https://github.com/piyush1008-cyber/placement-dsa-mastery/actions/workflows/ci.yml/badge.svg)](https://github.com/piyush1008-cyber/placement-dsa-mastery/actions/workflows/ci.yml)
 ![C++](https://img.shields.io/badge/C++-17-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![LeetCode](https://img.shields.io/badge/LeetCode-Curated%20Top%20Interview-FFA116?style=for-the-badge&logo=leetcode&logoColor=black)

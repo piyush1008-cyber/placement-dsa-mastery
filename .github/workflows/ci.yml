@@ -1,0 +1,40 @@
+name: CI Test Suite
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test-python:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Execute Algorithmic Test Suite
+        run: |
+          python tests/run_all_tests.py
+
+  verify-cpp:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Verify C++17 Compilations
+        run: |
+          for f in $(find . -name "*.cpp"); do
+            echo "Compiling $f with g++ -std=c++17..."
+            g++ -std=c++17 -Wall -Wextra -c "$f" -o /dev/null
+          done
+          echo "All C++17 implementations compiled successfully!"
